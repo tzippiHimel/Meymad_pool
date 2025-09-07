@@ -22,6 +22,8 @@ class ApiService {
       
       const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000/';
       console.log('API Base URL:', baseUrl);
+      console.log('VITE_API_URL:', import.meta.env.VITE_API_URL);
+      console.log('All env vars:', Object.keys(import.meta.env));
       console.log('Environment variables:', import.meta.env);
       const response = await fetch(`${baseUrl}${endPath}`, options);
       
