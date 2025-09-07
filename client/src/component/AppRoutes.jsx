@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { UserProvider } from "./UserContext";
 import { GlobalMessageProvider } from "./GlobalMessageContext";
-import Login from "./User/Login";
-import Register from './User/Register';
-import Home from './Home/Home';
+import Login from "./user/Login";
+import Register from './user/Register';
+import Home from './home/Home';
 import Nav from './nav/Nav';
 import Order from './orders/NewOrder';
 import Info from './info/Info';
