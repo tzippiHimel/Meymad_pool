@@ -20,9 +20,9 @@ class ApiService {
         options.body = isFormData ? body : JSON.stringify(body);
       }
       
-      const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000/';
+      const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000/';
       console.log('API Base URL:', baseUrl);
-      console.log('Environment variables:', process.env);
+      console.log('Environment variables:', import.meta.env);
       const response = await fetch(`${baseUrl}${endPath}`, options);
       
       const contentType = response.headers.get('content-type');
