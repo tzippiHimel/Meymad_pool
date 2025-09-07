@@ -20,11 +20,13 @@ class ApiService {
         options.body = isFormData ? body : JSON.stringify(body);
       }
       
-      const baseUrl = 'https://meymad-pool.onrender.com/';
-      console.log('API Base URL:', baseUrl);
-      console.log('VITE_API_URL:', import.meta.env.VITE_API_URL);
+      console.log('Raw VITE_API_URL:', import.meta.env.VITE_API_URL);
+      console.log('Type of VITE_API_URL:', typeof import.meta.env.VITE_API_URL);
+      console.log('Length of VITE_API_URL:', import.meta.env.VITE_API_URL?.length);
       console.log('All env vars:', Object.keys(import.meta.env));
-      console.log('Environment variables:', import.meta.env);
+      
+      const baseUrl = (import.meta.env.VITE_API_URL || 'https://meymad-pool.onrender.com').replace(/\/$/, '') + '/';
+      console.log('Final API Base URL:', baseUrl);
       const response = await fetch(`${baseUrl}${endPath}`, options);
       
       const contentType = response.headers.get('content-type');
