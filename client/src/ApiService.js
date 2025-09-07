@@ -20,7 +20,7 @@ class ApiService {
         options.body = isFormData ? body : JSON.stringify(body);
       }
       
-      const baseUrl =  'http://localhost:3000/';
+      const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000/';
       const response = await fetch(`${baseUrl}${endPath}`, options);
       
       const contentType = response.headers.get('content-type');
