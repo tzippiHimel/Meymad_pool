@@ -25,7 +25,10 @@ class ApiService {
       console.log('Length of VITE_API_URL:', import.meta.env.VITE_API_URL?.length);
       console.log('All env vars:', Object.keys(import.meta.env));
       
-      const baseUrl = (import.meta.env.VITE_API_URL || 'https://meymad-pool.onrender.com').replace(/\/$/, '') + '/';
+      const envApiUrl = import.meta.env.VITE_API_URL && import.meta.env.VITE_API_URL.trim() !== '' 
+        ? import.meta.env.VITE_API_URL.trim() 
+        : 'https://meymad-pool.onrender.com';
+      const baseUrl = envApiUrl.replace(/\/$/, '') + '/';
       console.log('Final API Base URL:', baseUrl);
       const response = await fetch(`${baseUrl}${endPath}`, options);
       
