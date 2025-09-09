@@ -20,16 +20,8 @@ class ApiService {
         options.body = isFormData ? body : JSON.stringify(body);
       }
       
-      console.log('Raw VITE_API_URL:', import.meta.env.VITE_API_URL);
-      console.log('Type of VITE_API_URL:', typeof import.meta.env.VITE_API_URL);
-      console.log('Length of VITE_API_URL:', import.meta.env.VITE_API_URL?.length);
-      console.log('All env vars:', Object.keys(import.meta.env));
-      
-      const envApiUrl = import.meta.env.VITE_API_URL && import.meta.env.VITE_API_URL.trim() !== '' 
-        ? import.meta.env.VITE_API_URL.trim() 
-        : 'https://meymad-pool.onrender.com';
-      const baseUrl = envApiUrl.replace(/\/$/, '') + '/';
-      console.log('Final API Base URL:', baseUrl);
+      // Use hardcoded URL until Netlify env vars are fixed
+      const baseUrl = 'https://meymad-pool.onrender.com/';
       const response = await fetch(`${baseUrl}${endPath}`, options);
       
       const contentType = response.headers.get('content-type');
