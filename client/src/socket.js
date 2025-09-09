@@ -7,8 +7,8 @@ const getSocketUrl = () => {
     return 'http://localhost:3000';
   }
   
-  // If we're in production, use the deployed server URL
-  return 'https://meymad-pool.onrender.com';
+  // If we're in production, use the current domain with socket.io path
+  return window.location.origin;
 };
 
 const socketUrl = getSocketUrl();

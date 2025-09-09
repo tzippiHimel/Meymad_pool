@@ -27,8 +27,8 @@ class ApiService {
           return 'http://localhost:3000/';
         }
         
-        // If we're in production, use the deployed server URL
-        return 'https://meymad-pool.onrender.com/';
+        // If we're in production, use the Netlify proxy
+        return '/api/';
       };
       
       const baseUrl = getBaseUrl();
