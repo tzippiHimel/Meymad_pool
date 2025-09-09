@@ -20,7 +20,7 @@ const OrderHistory = () => {
       try {
         setLoading(true);
         const reservationsData = await ApiService.request({
-          endPath: `reservations/with-deposit?user_id=${currentUser.id}`, 
+          endPath: `reservations/with_deposit?user_id=${currentUser.id}`, 
           credentials: 'include'
         });
         

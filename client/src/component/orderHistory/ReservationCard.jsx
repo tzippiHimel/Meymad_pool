@@ -73,7 +73,7 @@ const ReservationCard = ({ reservation, isFuture, onReservationUpdate }) => {
   const handleConfirmDeposit = async () => {
     try {
       await ApiService.request({
-        endPath: `reservations/${reservation.id}/confirm-deposit`,
+        endPath: `reservations/${reservation.id}/confirm_deposit`,
         method: 'PATCH',
         body: { user_id: reservation.user_id },
         credentials: 'include'

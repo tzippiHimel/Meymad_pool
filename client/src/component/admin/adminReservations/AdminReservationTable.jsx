@@ -74,7 +74,7 @@ export default function AdminReservationTable({
   const approveWithDeposit = async (id) => {
     try {
       await ApiService.request({
-        endPath: `reservations/${id}/approve-with-deposit`,
+        endPath: `reservations/${id}/approve_with_deposit`,
         method: "PATCH",
         credentials: 'include'
       });

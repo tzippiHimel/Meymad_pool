@@ -76,7 +76,7 @@ export default function ReceiptUploader({
       setProgress(20);
       
       await ApiService.request({
-        endPath: `reservations/${reservationId}/upload-receipt`,
+        endPath: `reservations/${reservationId}/upload_receipt`,
         method: 'POST',
         body: formData,
         credentials: 'include'
@@ -116,7 +116,7 @@ export default function ReceiptUploader({
       };
 
       await ApiService.request({
-        endPath: `reservations/${reservationId}/verify-receipt`,
+        endPath: `reservations/${reservationId}/verify_receipt`,
         method: 'POST',
         body: analysisData,
         credentials: 'include'
