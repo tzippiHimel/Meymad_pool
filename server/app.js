@@ -23,10 +23,42 @@ const io = new Server(server, {
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5173', 
-  credentials: true
-}));
+// CORS configuration
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    const allowedOrigins = [
+      'http://localhost:5173',
+      'http://localhost:3000',
+      'https://meymad-pool.netlify.app',
+      'https://meymad-pool-client.netlify.app',
+      process.env.CLIENT_URL
+    ].filter(Boolean);
+    
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      console.log('CORS blocked origin:', origin);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Cookie']
+};
+
+app.use(cors(corsOptions));
+
+// Health check endpoint
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'Meymad Pool Server is running!', 
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
 
 app.use('/auth', authRoutes);
 app.use('/users', userRoutes);

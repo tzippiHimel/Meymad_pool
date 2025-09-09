@@ -20,8 +20,19 @@ class ApiService {
         options.body = isFormData ? body : JSON.stringify(body);
       }
       
-      // Use hardcoded URL until Netlify env vars are fixed
-      const baseUrl = 'https://meymad-pool.onrender.com/';
+      // Dynamic URL based on environment
+      const getBaseUrl = () => {
+        // If we're in development
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          return 'http://localhost:3000/';
+        }
+        
+        // If we're in production, use the deployed server URL
+        return 'https://meymad-pool.onrender.com/';
+      };
+      
+      const baseUrl = getBaseUrl();
+      console.log('API request to:', `${baseUrl}${endPath}`);
       const response = await fetch(`${baseUrl}${endPath}`, options);
       
       const contentType = response.headers.get('content-type');

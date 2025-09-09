@@ -1,7 +1,34 @@
 import { io } from "socket.io-client";
 
-// Use hardcoded URL until Netlify env vars are fixed
-const socketUrl = "https://meymad-pool.onrender.com";
+// Dynamic URL based on environment
+const getSocketUrl = () => {
+  // If we're in development
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    return 'http://localhost:3000';
+  }
+  
+  // If we're in production, use the deployed server URL
+  return 'https://meymad-pool.onrender.com';
+};
 
-const socket = io(socketUrl, { withCredentials: true });
+const socketUrl = getSocketUrl();
+console.log('Socket connecting to:', socketUrl);
+
+const socket = io(socketUrl, { 
+  withCredentials: true,
+  transports: ['websocket', 'polling'],
+  timeout: 20000,
+  reconnection: true,
+  reconnectionAttempts: 5,
+  reconnectionDelay: 1000
+});
+
+socket.on('connect', () => {
+  console.log('Socket connected successfully');
+});
+
+socket.on('connect_error', (error) => {
+  console.error('Socket connection error:', error);
+});
+
 export default socket;
