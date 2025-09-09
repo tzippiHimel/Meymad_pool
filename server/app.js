@@ -15,7 +15,14 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_URL || 'http://localhost:5173', 
+    origin: [
+      'http://localhost:5173',
+      'http://localhost:3000',
+      'https://meymad-pool.netlify.app',
+      'https://meymad-pool-client.netlify.app',
+      'https://meymad-pool.onrender.com',
+      process.env.CLIENT_URL
+    ].filter(Boolean),
     credentials: true
   }
 });
@@ -34,6 +41,7 @@ const corsOptions = {
       'http://localhost:3000',
       'https://meymad-pool.netlify.app',
       'https://meymad-pool-client.netlify.app',
+      'https://meymad-pool.onrender.com',
       process.env.CLIENT_URL
     ].filter(Boolean);
     
