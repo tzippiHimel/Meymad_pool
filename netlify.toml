@@ -11,7 +11,7 @@
   to = "/index.html"
   status = 200
 
-# API proxy for development
+# API proxy for production
 [[redirects]]
   from = "/api/*"
   to = "https://meymad-pool.onrender.com/:splat"

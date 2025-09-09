@@ -22,9 +22,9 @@ class ApiService {
       
       // Dynamic URL based on environment
       const getBaseUrl = () => {
-        // If we're in development
+        // If we're in development, connect to Render server
         if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-          return 'http://localhost:3000/';
+          return 'https://meymad-pool.onrender.com/';
         }
         
         // If we're in production, use the Netlify proxy
