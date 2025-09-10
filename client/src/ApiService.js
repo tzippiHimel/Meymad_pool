@@ -26,7 +26,7 @@ class ApiService {
         return 'https://meymad-pool.onrender.com/';
       };
       
-      const baseUrl = getBaseUrl();
+      const baseUrl = 'https://meymad-pool.onrender.com/';
       console.log('API request to:', `${baseUrl}${endPath}`);
       const response = await fetch(`${baseUrl}${endPath}`, options);
       
