@@ -2,13 +2,8 @@ import { io } from "socket.io-client";
 
 // Dynamic URL based on environment
 const getSocketUrl = () => {
-  // If we're in development, connect to Render server
-  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-    return 'https://meymad-pool.onrender.com';
-  }
-  
-  // If we're in production, use the current domain with socket.io path
-  return window.location.origin;
+  // תמיד נתחבר לשרת ב-Render
+  return 'https://meymad-pool.onrender.com';
 };
 
 const socketUrl = getSocketUrl();
