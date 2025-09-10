@@ -25,9 +25,10 @@ class ApiService {
         // Always connect to Render server for now
         return 'https://meymad-pool.onrender.com/';
       };
-      
+      const BASE_URL = process.env.REACT_APP_API_URL;
+
       const baseUrl = 'https://meymad-pool.onrender.com/';
-      console.log(`API request to: https://meymad-pool.onrender/${endPath}`);
+      console.log(`API request to: https://meymad-pool.onrender/${endPath}`,BASE_URL);
       const response = await fetch(`https://meymad-pool.onrender.com/${endPath}`, options);
       
       const contentType = response.headers.get('content-type');
