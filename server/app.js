@@ -19,6 +19,8 @@ const io = new Server(server, {
     origin: [
       'http://localhost:5173',
       'http://localhost:3000',
+      'http://127.0.0.1:5173',
+      'http://127.0.0.1:3000',
       'https://meymad-pool.netlify.app',
       'https://meymad-pool-client.netlify.app',
       'https://meymad-pool.onrender.com',
@@ -40,6 +42,8 @@ const corsOptions = {
     const allowedOrigins = [
       'http://localhost:5173',
       'http://localhost:3000',
+      'http://127.0.0.1:5173',
+      'http://127.0.0.1:3000',
       'https://meymad-pool.netlify.app',
       'https://meymad-pool-client.netlify.app',
       'https://meymad-pool.onrender.com',
