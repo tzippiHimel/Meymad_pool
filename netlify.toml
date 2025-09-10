@@ -24,3 +24,9 @@
   to = "https://meymad-pool.onrender.com/socket.io/:splat"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/auth/*"
+  to = "https://meymad-pool.onrender.com/auth/:splat"
+  status = 200
+  force = true

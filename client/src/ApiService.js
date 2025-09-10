@@ -27,7 +27,7 @@ class ApiService {
       };
       
       const baseUrl = 'https://meymad-pool.onrender.com/';
-      console.log('API request to:', `${baseUrl}${endPath}`);
+      console.log('API request to!!:', `${baseUrl}${endPath}`);
       const response = await fetch(`${baseUrl}${endPath}`, options);
       
       const contentType = response.headers.get('content-type');
