@@ -3,3 +3,4 @@
 # API proxy for production
 /api/*    https://meymad-pool.onrender.com/:splat    200
 /socket.io/*    https://meymad-pool.onrender.com/socket.io/:splat    200
+/auth/*    https://meymad-pool.onrender.com/auth/:splat    200
