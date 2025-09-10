@@ -13,8 +13,32 @@
 
 # API proxy for production
 [[redirects]]
-  from = "/api/*"
-  to = "https://meymad-pool.onrender.com/:splat"
+  from = "/auth/*"
+  to = "https://meymad-pool.onrender.com/auth/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/users/*"
+  to = "https://meymad-pool.onrender.com/users/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/reservations/*"
+  to = "https://meymad-pool.onrender.com/reservations/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/comments/*"
+  to = "https://meymad-pool.onrender.com/comments/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/messages/*"
+  to = "https://meymad-pool.onrender.com/messages/:splat"
   status = 200
   force = true
 
@@ -22,11 +46,5 @@
 [[redirects]]
   from = "/socket.io/*"
   to = "https://meymad-pool.onrender.com/socket.io/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/auth/*"
-  to = "https://meymad-pool.onrender.com/auth/:splat"
   status = 200
   force = true
