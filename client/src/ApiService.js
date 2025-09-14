@@ -32,10 +32,18 @@ class ApiService {
       
       const baseUrl = getBaseUrl();
       const fullUrl = baseUrl + endPath;
-      console.log(`API request to: ${fullUrl}`);
+      
+      // Debug environment variables
+      console.log('=== Environment Variables Debug ===');
+      console.log('NODE_ENV:', process.env.NODE_ENV);
+      console.log('REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
+      console.log('typeof REACT_APP_API_URL:', typeof process.env.REACT_APP_API_URL);
+      console.log('All env vars starting with REACT_APP:', Object.keys(process.env).filter(key => key.startsWith('REACT_APP')));
+      console.log('baseUrl:', baseUrl);
+      console.log('fullUrl:', fullUrl);
+      console.log('===================================');
+      
       const response = await fetch(fullUrl, options);
-      console.log('הייה זה נסיון שלי');
-      console.log(process.env.REACT_APP_API_URL);
       const contentType = response.headers.get('content-type');
       let data;
       
