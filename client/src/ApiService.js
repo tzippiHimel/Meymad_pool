@@ -22,14 +22,18 @@ class ApiService {
       
       // Dynamic URL based on environment
       const getBaseUrl = () => {
-        // Always connect to Render server for now
+        // In production (Netlify), use relative URLs for proxy redirects
+        // In development, use the full URL to the Render server
+        if (process.env.NODE_ENV === 'production') {
+          return ''; // Use relative URLs for Netlify proxy
+        }
         return 'https://meymad-pool.onrender.com/';
       };
-      const BASE_URL = process.env.REACT_APP_API_URL;
-
-      const baseUrl = 'https://meymad-pool.onrender.com/';
-      console.log(`API request to: https://meymad-pool.onrender/${endPath}`,BASE_URL);
-      const response = await fetch(`https://meymad-pool.onrender.com/${endPath}`, options);
+      
+      const baseUrl = getBaseUrl();
+      const fullUrl = baseUrl + endPath;
+      console.log(`API request to: ${fullUrl}`);
+      const response = await fetch(fullUrl, options);
       
       const contentType = response.headers.get('content-type');
       let data;
