@@ -2,11 +2,8 @@ import { io } from "socket.io-client";
 
 // Dynamic URL based on environment
 const getSocketUrl = () => {
-  // In production (Netlify), use relative URLs for proxy redirects
-  // In development, use the full URL to the Render server
-  if (process.env.NODE_ENV === 'production') {
-    return ''; // Use relative URLs for Netlify proxy
-  }
+  // Always connect directly to Render server for Socket.IO
+  // Socket.IO doesn't work well with Netlify redirects
   return 'https://meymad-pool.onrender.com';
 };
 
