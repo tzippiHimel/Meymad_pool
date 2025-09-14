@@ -34,7 +34,8 @@ class ApiService {
       const fullUrl = baseUrl + endPath;
       console.log(`API request to: ${fullUrl}`);
       const response = await fetch(fullUrl, options);
-      
+      console.log('הייה זה נסיון שלי');
+      console.log(process.env.REACT_APP_API_URL);
       const contentType = response.headers.get('content-type');
       let data;
       
