@@ -20,12 +20,14 @@ class ApiService {
         options.body = isFormData ? body : JSON.stringify(body);
       }
       
-      // Dynamic URL based on environment
+      // Dynamic URL based on environment (prefer Vite env when present)
       const getBaseUrl = () => {
-        // In production (Netlify), use relative URLs for proxy redirects
-        // In development, use the full URL to the Render server
+        const viteUrl = import.meta?.env?.VITE_API_URL;
+        if (viteUrl) return viteUrl.endsWith('/') ? viteUrl : viteUrl + '/';
+
+        // Fallbacks
         if (process.env.NODE_ENV === 'production') {
-          return ''; // Use relative URLs for Netlify proxy
+          return '';
         }
         return 'https://meymad-pool.onrender.com/';
       };
@@ -36,10 +38,7 @@ class ApiService {
       // Debug environment variables
       console.log('=== Environment Variables Debug ===');
       console.log('NODE_ENV:', process.env.NODE_ENV);
-      console.log('hjl:', process.env.ghk);
-      console.log('VITE_API_URL:', `https://${import.meta.env.VITE_API_URL}`);
-      console.log('typeof REACT_APP_API_URL:', typeof process.env.REACT_APP_API_URL);
-      console.log('All env vars starting with REACT_APP:', Object.keys(process.env).filter(key => key.startsWith('REACT_APP')));
+      console.log('VITE_API_URL:', import.meta?.env?.VITE_API_URL);
       console.log('baseUrl:', baseUrl);
       console.log('fullUrl:', fullUrl);
       console.log('===================================');
