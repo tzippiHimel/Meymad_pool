@@ -37,7 +37,7 @@ class ApiService {
       console.log('=== Environment Variables Debug ===');
       console.log('NODE_ENV:', process.env.NODE_ENV);
       console.log('hjl:', process.env.ghk);
-      console.log('REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
+      console.log('REACT_APP_API_URL:', import.meta.env.REACT_APP_API_URL);
       console.log('typeof REACT_APP_API_URL:', typeof process.env.REACT_APP_API_URL);
       console.log('All env vars starting with REACT_APP:', Object.keys(process.env).filter(key => key.startsWith('REACT_APP')));
       console.log('baseUrl:', baseUrl);
