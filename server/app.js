@@ -67,6 +67,10 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+// Serve static files
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/img', express.static(path.join(__dirname, '../client/public/img')));
+
 // Health check endpoint
 app.get('/', (req, res) => {
   res.json({ 
