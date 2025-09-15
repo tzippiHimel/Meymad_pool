@@ -23,6 +23,7 @@ const io = new Server(server, {
       'http://127.0.0.1:3000',
       'https://meymad-pool.netlify.app',
       'https://meymad-pool-client.netlify.app',
+      'https://meymad.netlify.app',
       'https://meymad-pool.onrender.com',
       process.env.CLIENT_URL
     ].filter(Boolean),
@@ -46,6 +47,7 @@ const corsOptions = {
       'http://127.0.0.1:3000',
       'https://meymad-pool.netlify.app',
       'https://meymad-pool-client.netlify.app',
+      'https://meymad.netlify.app',
       
       'https://meymad-pool.onrender.com',
       process.env.CLIENT_URL
