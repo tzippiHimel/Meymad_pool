@@ -38,7 +38,7 @@ class ApiService {
       // Debug environment variables
       console.log('=== Environment Variables Debug ===');
       console.log('NODE_ENV:', process.env.NODE_ENV);
-      console.log('VITE_API_URL:', import.meta?.env?.VITE_API_URL);
+      console.log('VITE_API_URL:', import.meta?.env?.VITE_API_URL,".onrender.com");
       console.log('baseUrl:', baseUrl);
       console.log('fullUrl:', fullUrl);
       console.log('===================================');
