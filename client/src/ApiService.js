@@ -32,8 +32,8 @@ class ApiService {
         return 'https://meymad-pool.onrender.com/';
       };
       
-      const baseUrl = getBaseUrl();
-      const fullUrl = baseUrl + `.onrender.com${endPath}`;
+      const baseUrl = import.meta?.env?.VITE_API_URL;
+      const fullUrl = baseUrl + `.onrender.com/${endPath}`;
       
       // Debug environment variables
       console.log('=== Environment Variables Debug ===');
