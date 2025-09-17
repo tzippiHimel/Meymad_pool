@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import {
   Box, AppBar, Toolbar, Button, Drawer,
   List, ListItemButton, ListItemIcon, Tooltip, Avatar,
-  Menu, MenuItem
+  Menu, MenuItem, Typography, IconButton
 } from '@mui/material';
 import {
   AccountCircle, CalendarToday, MonetizationOn,
-  MenuBook, Phone, Update, ChatBubbleOutline
+  MenuBook, Phone, Update, ChatBubbleOutline, CloudUpload, Code, Build, Email, Home
 } from "@mui/icons-material";
 import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useUser } from '../UserContext';
@@ -50,6 +50,19 @@ const Nav = () => {
     window.addEventListener('beforeunload', () => {
       window.removeEventListener('popstate', handlePopState);
     });
+  };
+
+  const handleHomeClick = () => {
+    if (location.pathname !== '/') {
+      navigate('/');
+    }
+    setTimeout(() => {
+      try {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch (e) {
+        window.scrollTo(0, 0);
+      }
+    }, 0);
   };
 
   const navigationItems = [
@@ -98,6 +111,11 @@ const hideLogo = pathsToHideLogo.includes(location.pathname);
       >
         <Toolbar sx={navStyles.toolbar}>
           <Box sx={navStyles.leftButtonGroup}>
+            <Tooltip title="דף הבית">
+              <IconButton onClick={handleHomeClick} sx={navStyles.homeIconButton}>
+                <Home />
+              </IconButton>
+            </Tooltip>
             <Button component={Link} to="/register" sx={navStyles.regularButton}>
               הרשמה
             </Button>
@@ -191,6 +209,36 @@ const hideLogo = pathsToHideLogo.includes(location.pathname);
 
       <Box component="main" sx={navStyles.mainContent}>
         <Outlet />
+        <Box sx={navStyles.footer}>
+          <Typography variant="body2" align="center">
+            "האתר פותח על ידי צוות "קליק
+          </Typography>
+          <Typography variant="body2" align="center">
+            <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5 }}>
+              העלאה לאוויר: צפורה הימל <CloudUpload sx={navStyles.footerIcon} fontSize="small" />
+            </Box>
+            <br />
+            <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5 }}>
+              פיתוח המוצר: איילת מקסימוב וצפורה הימל <Code sx={navStyles.footerIcon} fontSize="small" />
+            </Box>
+            <br />
+            <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5 }}>
+              תחזוקה שוטפת: איילת מקסימוב וצפורה הימל <Build sx={navStyles.footerIcon} fontSize="small" />
+            </Box>
+          </Typography>
+          <Typography variant="body2" align="center">
+            <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5, whiteSpace: 'nowrap' }}>
+              <Box component="a" href="mailto:tzipora.himel@gmail.com" sx={navStyles.footerLink}>
+                tzipora.himel@gmail.com
+              </Box>
+              <Box sx={{ px: 0.5 }}>|</Box>
+              <Box component="a" href="mailto:ayelet2450@gmail.com" sx={navStyles.footerLink}>
+                ayelet2450@gmail.com
+              </Box>
+              &nbsp;לתמיכה ופניות לצוות קליק <Email sx={navStyles.footerIcon} fontSize="small" />
+            </Box>
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );
