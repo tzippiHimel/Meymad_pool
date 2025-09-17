@@ -21,10 +21,11 @@ const AllComments = () => {
     setLoading(true);
     try {
       const data = await ApiService.request({ endPath: 'comments' });
-      setComments(data || []);
+      setComments(Array.isArray(data) ? data : []);
     } catch (err) {
       const msg = 'שגיאה בטעינת התגובות: ' + (err.message || err.error || 'שגיאה לא ידועה');
       showMessage(msg, "error");
+      setComments([]); // הוסף גם כאן ליתר ביטחון
     } finally {
       setLoading(false);
     }
