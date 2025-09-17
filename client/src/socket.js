@@ -10,7 +10,9 @@ const baseUrl = import.meta.env.VITE_API_URL;
 const socketUrl = baseUrl.includes("localhost")
     ? baseUrl
     : `${baseUrl}.onrender.com`;
-console.log('Socket connecting    to: ', socketUrl);
+
+console.log('Socket connecting   to:', socketUrl);
+
 
 const socket = io(socketUrl, { 
   withCredentials: true,
