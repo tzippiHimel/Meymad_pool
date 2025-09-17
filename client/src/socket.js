@@ -7,6 +7,7 @@ import { io } from "socket.io-client";
 //   return 'https://meymad-pool.onrender.com';
 // };
 const baseUrl = import.meta.env.VITE_API_URL;
+console.log(baseUrl)
 const socketUrl = baseUrl.includes("localhost")
     ? baseUrl
     : `${baseUrl}.onrender.com`;
