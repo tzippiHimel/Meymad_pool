@@ -76,6 +76,17 @@ export const navStyles = {
     '&:hover': { bgcolor: '#00838f' }
   },
 
+  homeButton: {
+    bgcolor: '#00bcd4',
+    color: '#fff',
+    '&:hover': { bgcolor: '#0097a7' }
+  },
+
+  homeIconButton: {
+    color: '#007c91',
+    '&:hover': { color: '#005f73', bgcolor: 'transparent' }
+  },
+
   // כפתור משתמש
   userButton: {
     textTransform: 'none',
@@ -128,5 +139,38 @@ export const navStyles = {
     bgcolor: '#f7fdff',
     minHeight: `calc(100vh - 64px)`, // גובה מלא פחות ה-AppBar
     position: 'relative'
+  },
+
+  footer: {
+    mt: 4,
+    py: 2,
+    px: 2,
+    borderTop: '1px solid #b2ebf2',
+    color: '#006978',
+    bgcolor: '#e0f7fa',
+  },
+
+  footerLink: {
+    color: '#006978',
+    textDecoration: 'underline',
+    '&:hover': { color: '#004d5a' }
+  },
+
+  footerIcon: {
+    verticalAlign: 'middle',
+    color: '#007c91'
+  },
+
+  footerEmphasis: {
+    fontStyle: 'italic',
+    fontWeight: 600
+  },
+
+  footerHomeBox: {
+    // removed
+  },
+
+  footerHomeButton: {
+    // removed
   }
 };
