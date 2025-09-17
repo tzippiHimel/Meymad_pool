@@ -4,7 +4,7 @@ class ApiService {
       const isFormData = typeof FormData !== 'undefined' && body instanceof FormData;
 
       const defaultHeaders = isFormData
-        ? { ...headers } // אל תקבע Content-Type ידנית עבור FormData
+        ? { ...headers } 
         : { "Content-Type": "application/json", ...headers };
       
       const options = {
@@ -19,32 +19,17 @@ class ApiService {
       if (body) {
         options.body = isFormData ? body : JSON.stringify(body);
       }
-      
-      // Dynamic URL based on environment (prefer Vite env when present)
-      const getBaseUrl = () => {
-        const viteUrl = import.meta?.env?.VITE_API_URL;
-        if (viteUrl) return viteUrl.endsWith('/') ? viteUrl : viteUrl + '/';
+   const baseUrl = import.meta.env.VITE_API_URL;
+console.log(baseUrl)
+// אם אנחנו בריצה מקומית, לא להוסיף את render.com
+const fullUrl =
+  baseUrl.includes("localhost")
+    ? `${baseUrl}/${endPath}`
+    : `${baseUrl}.onrender.com/${endPath}`;
 
-        // Fallbacks
-        if (process.env.NODE_ENV === 'production') {
-          return '';
-        }
-        return 'https://meymad-pool.onrender.com/';
-      };
-      
-      const baseUrl = import.meta?.env?.VITE_API_URL;
-      const fullUrl = baseUrl + `.onrender.com/${endPath}`;
-      
-      // Debug environment variables
-      console.log('=== Environment Variables Debug ===');
-      console.log('NODE_ENV:', process.env.NODE_ENV);
-      console.log('VITE_API_URL:', import.meta?.env?.VITE_API_URL,".onrender.com");
-      console.log('baseUrl:', baseUrl);
-      console.log('fullUrl:', fullUrl);
-      console.log('===================================');
-      
-      const response = await fetch(fullUrl, options);
-      const contentType = response.headers.get('content-type');
+const response = await fetch(fullUrl, options);
+const contentType = response.headers.get("content-type");
+
       let data;
       
       if (contentType && contentType.includes('application/json')) {

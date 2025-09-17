@@ -35,8 +35,8 @@ exports.login = async (req, res) => {
 
         res.cookie('token', token, {
             httpOnly: true,
-            secure: true, // חובה ב-cross-origin
-            sameSite: 'none', // חובה ב-cross-origin
+            secure: true, 
+            sameSite: 'none', 
             maxAge: 7 * 24 * 60 * 60 * 1000
         });
 
@@ -55,7 +55,6 @@ exports.register = async (req, res) => {
 
         const password_hash = await bcrypt.hash(password, 10);
         req.body.password = password_hash;
-
         const newUser = await authService.createUser(req.body);
 
         const user = {
