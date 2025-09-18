@@ -2,16 +2,16 @@
 export const calendarStyles = {
   mainContainer: {
     width: '100vw',
-    height: 'calc(100vh - 64px)',
+    height: { xs: 'calc(100vh - 56px)', sm: 'calc(100vh - 64px)' },
     position: 'fixed',
-    top: '64px',
+    top: { xs: '56px', sm: '64px' },
     left: 0,
     background: '#fff',
     display: 'flex',
     flexDirection: 'column',
     overflow: 'hidden',
     zIndex: 1000,
-    padding: '20px',
+    padding: { xs: '10px', sm: '20px' },
     boxSizing: 'border-box',
   },
 
@@ -19,7 +19,7 @@ export const calendarStyles = {
     width: { xs: '98vw', sm: '90vw', md: '80vw', lg: '70vw' },
     maxWidth: '1400px',
     height: '100%',
-    padding: '20px',
+    padding: { xs: '10px', sm: '20px' },
     display: 'flex',
     flexDirection: 'column',
     margin: '0 auto',
@@ -48,10 +48,11 @@ export const calendarStyles = {
   },
 
   monthTitle: {
-    fontSize: '2rem',
+    fontSize: { xs: '1.5rem', sm: '2rem' },
     fontWeight: 700,
     color: '#29b6f6',
     fontFamily: 'Arial, sans-serif',
+    textAlign: 'center',
   },
 
   weekDaysHeader: {
@@ -62,12 +63,12 @@ export const calendarStyles = {
   },
 
   weekDay: {
-    fontSize: '1.2rem',
+    fontSize: { xs: '1rem', sm: '1.2rem' },
     fontWeight: 600,
     color: '#29b6f6',
     textAlign: 'center',
     width: 'calc(100% / 7)',
-    height: '35px',
+    height: { xs: '30px', sm: '35px' },
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -93,7 +94,7 @@ export const calendarStyles = {
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'flex-end',
-    padding: '8px 12px 0 0',
+    padding: { xs: '4px 8px 0 0', sm: '8px 12px 0 0' },
     boxSizing: 'border-box',
   },
 };
@@ -107,11 +108,11 @@ export const getDayStyles = (day, currentMonth, selectedDate, today) => {
   return {
     flex: 1,
     height: '100%',
-    minHeight: '80px',
+    minHeight: { xs: '60px', sm: '80px' },
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: '1.8rem',
+    fontSize: { xs: '1.4rem', sm: '1.8rem' },
     fontWeight: 700,
     borderRadius: '16px',
     transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',

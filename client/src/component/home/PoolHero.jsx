@@ -39,32 +39,50 @@ export default function PoolHero() {
         }}
       >
         <Typography
-          variant="h2"
+          variant="h1"
           sx={{
             fontWeight: 900,
-            mb: 3,
-            fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem", lg: "5rem" },
-            textShadow: "3px 3px 10px rgba(0,0,0,0.7)",
-            lineHeight: 1.1,
+            mb: 2,
+            fontSize: { xs: "3rem", sm: "4rem", md: "5rem", lg: "6rem" },
+            textShadow: "4px 4px 15px rgba(0,0,0,0.8)",
+            lineHeight: 1,
             color: "#fff",
+            letterSpacing: "0.1em",
           }}
         >
-          בריכה פרטית – הזמנת תור אונליין
+          מימד
         </Typography>
         <Typography
-          variant="h4"
+          variant="h3"
+          sx={{
+            mb: 2,
+            fontWeight: 600,
+            fontSize: { xs: "1.5rem", sm: "2rem", md: "2.5rem", lg: "3rem" },
+            textShadow: "3px 3px 10px rgba(0,0,0,0.7)",
+            lineHeight: 1.2,
+            color: "#e3f2fd",
+          }}
+        >
+          בריכה פרטית
+        </Typography>
+        <Typography
+          variant="h5"
           sx={{
             mb: 4,
             fontWeight: 400,
-            fontSize: { xs: "1.1rem", sm: "1.5rem", md: "1.8rem", lg: "2rem" },
+            fontSize: { xs: "1.2rem", sm: "1.6rem", md: "1.8rem", lg: "2rem" },
             opacity: 0.95,
             textShadow: "2px 2px 8px rgba(0,0,0,0.6)",
             color: "#fff",
+            maxWidth: "800px",
+            textAlign: "center",
           }}
         >
-          מזמינים תור לבריכה, מגיעים בשעה שנקבעה, משלמים במקום ונהנים מחוויה מרעננת!
+          הזמנות אונליין • תורים זמינים • חוויה פרטית ומרעננת
           <br />
-          הבריכה מחכה לכם – פרטיות, ניקיון, ושקט.
+          <Box component="span" sx={{ fontSize: "0.9em", opacity: 0.9 }}>
+            !בואו ליהנות מבריכה נקייה, שקטה ופרטית – הזמינו עכשיו
+          </Box>
         </Typography>
         <Button
           component={Link}

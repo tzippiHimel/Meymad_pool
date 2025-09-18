@@ -4,10 +4,12 @@
   align-items: center;
   justify-content: center;
   background: none;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .pricing-content {
-  max-width: 600px;
+  max-width: 960px;
   width: 100%;
   text-align: center;
 }
@@ -16,15 +18,102 @@
   color: #0097a7;
   font-weight: 800;
   margin-bottom: 2.5rem;
-  font-size: 2.2rem;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
 }
+.pricing-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .pricing-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+.pricing-card {
+  background: #e0f7fa;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 24px rgba(0, 188, 212, 0.12);
+}
+.pricing-card.highlight {
+  background: linear-gradient(180deg, #e0f7fa, #b2ebf2);
+}
+.pricing-card h3 {
+  margin: 0 0 8px;
+  color: #007c91;
+  font-weight: 800;
+}
+.pricing-card .price {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #006978;
+}
+.pricing-card .note {
+  color: #007c91;
+}
+
+.calc-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  margin-bottom: 24px;
+}
+.calc-card h2 {
+  margin-top: 0;
+  color: #007c91;
+}
+.calc-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .calc-controls {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+.calc-controls .field label { color: #006978; }
+.calc-controls input[type="range"] {
+  width: 100%;
+}
+.calc-result {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 8px;
+}
+.calc-result .total-label { color: #006978; font-weight: 700; }
+.calc-result .total-value { color: #004d5a; font-weight: 900; font-size: 1.8rem; }
+
+.calc-cta { margin-top: 12px; }
+.cta-button {
+  display: inline-block;
+  background: #00acc1;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.cta-button:hover { background: #00838f; }
 
 .pricing-table {
   margin-bottom: 2rem;
+  overflow-x: auto;
 }
 
 .pricing-table table {
   width: 100%;
+  min-width: 300px;
   border-collapse: collapse;
   background: #e0f7fa;
   border-radius: 1.5rem;

@@ -20,7 +20,7 @@ const HowItWorks = () => {
           fontSize: { xs: '2rem', md: '2.8rem' }
         }}
       >
-        איך זה עובד?
+        ?איך זה עובד
       </Typography>
       <Grid container spacing={6} justifyContent="center" direction="row-reverse">
         <Grid item xs={12} md={4}>
@@ -176,7 +176,7 @@ const HowItWorks = () => {
               <Pool sx={{ fontSize: '2.5rem', color: '#f57c00', zIndex: 1 }} />
             </Box>
             <Typography variant="h5" sx={{ color: '#f57c00', fontWeight: 700, mt: 2 }}>
-              נהנים מהבריכה!
+              !נהנים מהבריכה
             </Typography>
             <Typography
               variant="body1"
