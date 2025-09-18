@@ -45,34 +45,45 @@ export const navStyles = {
   toolbar: {
     justifyContent: 'space-between',
     flexWrap: 'wrap',
-    pr: { sm: `${drawerWidth + 20}px` } // מוסיף מקום לניתוב הצדדי
+    pr: { sm: `${drawerWidth + 20}px` }, // מוסיף מקום לניתוב הצדדי
+    minHeight: { xs: '56px', sm: '64px' },
+    px: { xs: 1, sm: 2 }
   },
 
   // קבוצת כפתורים שמאלית
   leftButtonGroup: {
     display: 'flex',
     alignItems: 'center',
-    gap: 1,
+    gap: { xs: 0.5, sm: 1 },
     flexWrap: 'wrap',
-    flexGrow: 1
+    flexGrow: 1,
+    overflow: 'hidden'
   },
 
   // קבוצת כפתורים ימנית
   rightButtonGroup: {
     display: 'flex',
     alignItems: 'center',
-    gap: 1
+    gap: { xs: 0.5, sm: 1 },
+    flexShrink: 0
   },
 
   // כפתורים רגילים
   regularButton: {
-    color: '#007c91'
+    color: '#007c91',
+    fontSize: { xs: '0.75rem', sm: '0.875rem' },
+    px: { xs: 1, sm: 2 },
+    py: { xs: 0.5, sm: 1 },
+    minWidth: 'auto'
   },
 
   // כפתור הזמנה חדשה
   newOrderButton: {
     bgcolor: '#00acc1',
     color: '#fff',
+    fontSize: { xs: '0.75rem', sm: '0.875rem' },
+    px: { xs: 1.5, sm: 2 },
+    py: { xs: 0.5, sm: 1 },
     '&:hover': { bgcolor: '#00838f' }
   },
 
@@ -101,8 +112,7 @@ export const navStyles = {
 
   // Drawer
   drawer: {
-    // width: drawerWidth,
-    // flexShrink: 0,
+    display: { xs: 'none', sm: 'block' }, // הסתרה במכשירים קטנים
     '& .MuiDrawer-paper': {
       width: drawerWidth,
       boxSizing: 'border-box',
@@ -131,13 +141,13 @@ export const navStyles = {
 
   mainContent: {
     flexGrow: 1,
-    marginTop: '64px', // גובה ה-AppBar
-    marginRight: `${drawerWidth}px`, // רוחב הניווט הצדדי
-    width: `calc(100vw - ${drawerWidth}px)`, // רוחב המסך פחות הניווט
-    maxWidth: `calc(100vw - ${drawerWidth}px)`, // מונע חריגה
+    marginTop: { xs: '56px', sm: '64px' }, // גובה ה-AppBar
+    marginRight: { xs: 0, sm: `${drawerWidth}px` }, // רוחב הניווט הצדדי
+    width: { xs: '100vw', sm: `calc(100vw - ${drawerWidth}px)` }, // רוחב המסך פחות הניווט
+    maxWidth: { xs: '100vw', sm: `calc(100vw - ${drawerWidth}px)` }, // מונע חריגה
     overflow: 'hidden', // מונע גלילה אופקית
     bgcolor: '#f7fdff',
-    minHeight: `calc(100vh - 64px)`, // גובה מלא פחות ה-AppBar
+    minHeight: { xs: `calc(100vh - 56px)`, sm: `calc(100vh - 64px)` }, // גובה מלא פחות ה-AppBar
     position: 'relative'
   },
 

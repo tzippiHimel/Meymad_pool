@@ -6,8 +6,8 @@ export const contactStyles = {
   container: {
     maxWidth: 800,
     mx: "auto",
-    mt: 5,
-    p: 4,
+    mt: { xs: 2, sm: 5 },
+    p: { xs: 2, sm: 4 },
     direction: "rtl",
   },
 
@@ -23,18 +23,19 @@ export const contactStyles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    gap: 16,
-    mt: 5,
-    mb: 8,
-    minHeight: "300px"
+    gap: { xs: 8, sm: 16 },
+    mt: { xs: 3, sm: 5 },
+    mb: { xs: 4, sm: 8 },
+    minHeight: { xs: "200px", sm: "300px" },
+    flexDirection: { xs: "column", sm: "row" }
   },
 
   // עיצוב כפתורי הקשר (אימייל, טלפון, צ'אט)
   contactButton: {
     bgcolor: "#e0f7fa",
     color: "#0097a7",
-    width: 220,
-    height: 220,
+    width: { xs: 180, sm: 220 },
+    height: { xs: 180, sm: 220 },
     border: 3,
     borderColor: "#00bcd4",
     transition: "all 0.4s ease",
@@ -49,7 +50,7 @@ export const contactStyles = {
 
   // גודל אייקונים בכפתורים
   iconSize: {
-    fontSize: 60,
+    fontSize: { xs: 50, sm: 60 },
     color: "#00bcd4"
   },
 

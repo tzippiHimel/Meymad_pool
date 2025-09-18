@@ -14,8 +14,9 @@ export const infoStyles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    gap: 4,
+    gap: { xs: 2, sm: 4 },
     bgcolor: "transparent",
+    px: { xs: 2, sm: 4 },
   },
   title: {
     letterSpacing: 1,
@@ -24,6 +25,7 @@ export const infoStyles = {
     textShadow: "0 2px 8px #b2ebf2",
     color: "#0097a7",
     fontWeight: 700,
+    fontSize: { xs: '1.8rem', sm: '2.125rem' },
   },
   rowArea: {
     width: "100%",
@@ -43,7 +45,7 @@ export const infoStyles = {
     maxWidth: 500,
     bgcolor: "transparent",
     position: "relative",
-    minHeight: 350,
+    minHeight: { xs: 300, sm: 350 },
   },
   editButtons: {
     position: "absolute",
@@ -62,11 +64,11 @@ export const infoStyles = {
     mt: { xs: 0, md: -40 },
   },
   avatar: {
-    width: 120,
-    height: 120,
+    width: { xs: 100, sm: 120 },
+    height: { xs: 100, sm: 120 },
     bgcolor: "#4dd0e1",
     color: "#fff",
-    fontSize: 60,
+    fontSize: { xs: 50, sm: 60 },
     fontWeight: "bold",
     boxShadow: 4,
     border: "4px solid #fff",
@@ -78,6 +80,7 @@ export const infoStyles = {
     textShadow: "0 2px 8px #b2ebf2",
     color: "#0097a7",
     fontWeight: 700,
+    fontSize: { xs: '1.2rem', sm: '1.5rem' },
   },
   editBtn: {
     borderRadius: 3,

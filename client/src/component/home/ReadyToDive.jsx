@@ -39,7 +39,7 @@ const ReadyToDive = () => (
           textShadow: '2px 2px 8px rgba(0,0,0,0.3)'
         }}
       >
-        מוכנים לצלילה מרעננת?
+        ?מוכנים לצלילה מרעננת
       </Typography>
       <Typography
         variant="h5"
@@ -52,7 +52,7 @@ const ReadyToDive = () => (
       >
         הזמינו עכשיו תור לבריכה הפרטית שלנו
         <br />
-        ותיהנו מחוויה מושלמת של מים, פרטיות וניקיון!
+        !ותיהנו מחוויה מושלמת של מים, פרטיות וניקיון
       </Typography>
       <Box sx={{ display: 'flex', gap: 4, justifyContent: 'center', flexWrap: 'wrap' }}>
         <Button
